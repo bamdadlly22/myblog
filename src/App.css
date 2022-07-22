@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: dana;
+  src: url(../public/dana/dana-fanum-bold.eot);
+  src: url(../public/dana/dana-fanum-bold.ttf);
+  src: url(../public/dana/dana-fanum-bold.woff);
+  src: url(../public/dana/dana-fanum-bold.woff2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  direction: rtl;
+  box-sizing: border-box;
+  font-family: "dana",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 768px) {
+  .ant-layout-content {
+    padding: 20px !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.ant-layout {
+  min-height: 100vh !important;
+}
+
+
+#components-layout-demo-fixed .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.2);
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav .myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #1890ff;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+/* .topnav a:hover {
+  background-color: #ddd;
+  color: #1890ff;
+} */
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #001529;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.hero .ant-card-body {
+  padding: 0px;
+  overflow: hidden
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.card-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0) 100%);
+  bottom: 0;
+  padding: 0px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.card-overlay h3 {
+  color: #fff;
+  font-size: 22px;
+}
+.card-overlay p {
+  color: #ddd5d5;
+  font-size: 14px;
+}
+
+.hero .card-image {
+  transition: all 0.5s ease-in-out;
+
+}
+
+.hero .ant-card:hover .card-image {
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
 }
