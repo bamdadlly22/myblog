@@ -41,14 +41,28 @@ const MainHeader = () => {
      </Menu.Item>
      <Menu.Item key="two">
       <Link to="/posts">
-       مقالات
+      همه مقالات
       </Link>
      </Menu.Item>
      <Menu.Item key="three">
-       تماس با ما
+     <Link to="/category/3">
+      فرهنگ و هنر
+     </Link>
      </Menu.Item>
      <Menu.Item key="four">
-       درباره ما
+     <Link to="/category/4">
+      آموزش
+     </Link>
+     </Menu.Item>
+     <Menu.Item key="five">
+     <Link to="/category/5">
+      تکنولوژی
+     </Link>
+     </Menu.Item>
+     <Menu.Item key="six">
+     <Link to="/category/6">
+      سرگرمی 
+     </Link>
      </Menu.Item>
    </Menu>
        </Col>
@@ -70,10 +84,24 @@ const MainHeader = () => {
      <div className="topnav">
          <a className="active">وبلاگ من</a>
           <div className="myLinks">
-           <a href="#news">خانه</a>
-           <a href="#blogs">مقالات</a>
-            <a href="#contact">تماس با ما</a>
-            <a href="#about">درباره ما</a>
+          <Link to="/">
+            خانه
+          </Link>           
+          <Link to="/posts">
+          همه مقالات
+          </Link>          
+          <Link to="/category/3">
+           فرهنگ و هنر
+          </Link>
+          <Link to="/category/4">
+           آموزش
+          </Link>
+          <Link to="/category/5">
+           تکنولوژی
+          </Link>
+          <Link to="/category/6">
+            سرگرمی 
+          </Link>
           </div>
          <a className="icon" onClick={menuFunc}>
            <i className="fa fa-bars"></i>

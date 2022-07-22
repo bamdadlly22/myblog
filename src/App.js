@@ -10,6 +10,7 @@ import Post from "./components/pages/Post";
 import { useDispatch } from "react-redux";
 import { getPosts } from "./redux/action/postAction";
 import Home from "./components/pages/Home";
+import Category from "./components/pages/Category";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/posts" element={<Posts posts={posts}/>}/>
         <Route path="/posts/:slug" element={<Post/>}/>
+        <Route path="/category/:id" element={<Category/>} />
       </Routes>
       </MainLayout>
     </BrowserRouter>

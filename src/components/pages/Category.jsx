@@ -1,21 +1,23 @@
-import { Col, Row } from "antd";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { httpCatPosts } from "../../services/postServices";
 import { Card } from 'antd';
-import { useDispatch } from "react-redux";
+import { Col, Row } from "antd";
+import { Link } from "react-router-dom";
 import { Interweave } from "interweave";
-import { Link, NavLink } from 'react-router-dom';
 
 
-
-const Posts = ({posts}) => {
-  const [img, setImg] = useState([]);
-  const { Meta } = Card;
-  const dispatch = useDispatch();
-
-
+const Category = () => {
+    const { Meta } = Card;
+    const {id} = useParams();
+    const [catPosts, setCatPosts] = useState([]);
+    useEffect(()=> {
+     httpCatPosts(id).then(data => setCatPosts(data.data)).catch(err => console.log(err));
+    },[id]);
+    console.log(catPosts);
     return(<>
-      <Row gutter={[24, 24]}>
-          {posts.map(post => 
+          <Row gutter={[24, 24]}>
+          {catPosts[0]? catPosts.map(post => 
             (<Col xs={24} md={6}>
               <Card
                 hoverable
@@ -26,9 +28,9 @@ const Posts = ({posts}) => {
                 <Link to={`/posts/${post.slug}`}>ادامه مطلب...</Link>
               </Card>
             </Col>)
-          )}
+          ) : <div style={{margin:"auto"}}><h1 >مقاله ای یافت نشد</h1></div>}
       </Row>
     </>)
 }
 
-export default Posts;
+export default Category;
