@@ -6,11 +6,11 @@ import { Interweave } from 'interweave';
 import Meta from 'antd/lib/card/Meta';
 import { Divider, List, Typography } from 'antd';
 
-const Home = () => {
+const Home = ({userinfo}) => {
 
-  const posts = useSelector(state => state.posts);
+  const {posts} = useSelector(state => state.posts);
   const [lasts, setLasts] = useState([]);
-
+  
   const data = [
     'کتاب',
     'خلاقیت',
@@ -23,9 +23,9 @@ const Home = () => {
 
   useEffect(() => {
     setLasts(posts.slice(-3))
-  },[posts])
-  console.log(lasts);
 
+  },[posts])
+  console.log(userinfo);
     return(<>
 
       <section className='hero'>

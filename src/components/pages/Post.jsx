@@ -15,7 +15,7 @@ const Post = () => {
     const { TextArea } = Input;
     let {slug} = useParams();
     const [post, setPost] = useState(); 
-    const posts = useSelector(state => state.posts);
+    const {posts} = useSelector(state => state.posts);
 
     const onChange = (e) => {
         console.log('Change:', e.target.value);

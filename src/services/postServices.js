@@ -30,3 +30,16 @@ export const httpPost = async (slug) => {
         return(error);
     }
 }
+
+export const httpLogin = async (user) => {
+    try{
+        const response = await axios.post("http://localhost/myblog/wp-json/jwt-auth/v1/token", {
+            username: user.username,
+            password: user.password
+        })
+        console.log(response);
+        return response;
+    } catch (error) {
+        return error;
+    }
+}

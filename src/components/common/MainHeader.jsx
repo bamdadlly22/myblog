@@ -2,12 +2,15 @@ import { Col, Layout, Menu, Row,Button } from 'antd';
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Input } from 'antd';
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux/es/exports';
 
 const MainHeader = () => {
     const { Header  } = Layout;
     const { Search } = Input;
     const onSearch = (value) => console.log(value);
+    const username = localStorage.getItem("username");
+
   
     const isDesktopOrLaptop = useMediaQuery({
       query: '(min-width: 992px)'
@@ -76,7 +79,11 @@ const MainHeader = () => {
      />
        </Col>
        <Col md={4} style={{textAlign:"left"}}>
-       <Button type="primary" size='large'>ثبت نام / ورود</Button>
+        {username? (<NavLink to="/my-account">
+        <Button type="primary" size='large'>سلام {username}</Button>
+        </NavLink>) : (<NavLink to="/login">
+        <Button type="primary" size='large'>ثبت نام / ورود</Button>
+        </NavLink>)}
        </Col>
      </Row>
      </Header>
@@ -102,6 +109,11 @@ const MainHeader = () => {
           <Link to="/category/6">
             سرگرمی 
           </Link>
+          {username? (<NavLink to="/login">
+        <Button type="primary" size='large'>سلام {username}</Button>
+        </NavLink>) : (<NavLink to="/login">
+        <Button type="primary" size='large'>ثبت نام / ورود</Button>
+        </NavLink>)}
           </div>
          <a className="icon" onClick={menuFunc}>
            <i className="fa fa-bars"></i>
