@@ -48,22 +48,22 @@ const MainHeader = () => {
       </Link>
      </Menu.Item>
      <Menu.Item key="three">
-     <Link to="/category/3">
+     <Link to="/category/1">
       فرهنگ و هنر
      </Link>
      </Menu.Item>
      <Menu.Item key="four">
-     <Link to="/category/4">
+     <Link to="/category/3">
       آموزش
      </Link>
      </Menu.Item>
      <Menu.Item key="five">
-     <Link to="/category/5">
+     <Link to="/category/4">
       تکنولوژی
      </Link>
      </Menu.Item>
      <Menu.Item key="six">
-     <Link to="/category/6">
+     <Link to="/category/5">
       سرگرمی 
      </Link>
      </Menu.Item>

@@ -22,7 +22,7 @@ const Posts = ({posts}) => {
                 key={post.id}
                 cover={<img alt="example" src={post.uagb_featured_image_src.medium[0]} height={250} style={{objectFit:"cover"}}/>}
                  >
-                <Meta style={{textAlign:"justify"}} title={<Interweave content={post.title.rendered} />} description={<Interweave content={post.excerpt.rendered} />} />
+                <Meta style={{textAlign:"justify"}} title={<Interweave content={post.title.rendered} />} description={<Interweave content={post.uagb_excerpt} />} />
                 <Link to={`/posts/${post.slug}`}>ادامه مطلب...</Link>
               </Card>
             </Col>)

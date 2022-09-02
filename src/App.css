@@ -120,8 +120,55 @@
   transform: scale(1.1);
 }
 
+.ant-card-meta-title span {
+  font-size: 20px;
+}
+
+.ant-card-meta-detail {
+  margin-bottom: 15px !important;
+}
+
+.ant-col-md-16 p {
+  color: #8c8c8c;
+  font-weight: 200;
+}
+
 .loginForm {
   width: 400px;
   margin: auto;
   padding-top: 60px;
 }
+
+.anticon-menu-fold {
+  margin-right: 20px;
+}
+.anticon-menu-unfold {
+  margin-right: 20px;
+}
+.dashboard-menu li {
+  text-align: center;
+}
+.dashboard-menu li span .anticon {
+  margin-left: 8px;
+}
+.dashboard-header {
+  text-align: left;
+}
+.dashboard-header button {
+  margin-left: 25px;
+}
+
+.dashboard-box .anticon svg {
+  font-size: 45px !important;
+  color: #1890ff;
+  margin-bottom: 10px;
+}
+
+.ant-table-thead > tr > th {
+  text-align: right;
+}
+
+.radio-label {
+  margin-left: 30px !important;
+}
+

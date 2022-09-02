@@ -11,19 +11,15 @@ const Login = () => {
     const dispatch = useDispatch();
     const onFinish = async (values) => {
         const {data} = await httpLogin(values);
-        console.log(data)
         if(data) {
             localStorage.setItem("token",data.token);
             localStorage.setItem("username",data.user_nicename);
             dispatch(setUser(data.user_display_name, data.user_email));
-            return navigate("/");
+            navigate("/my-account");
         }
       };
 
-      const user = {
-        username:"myblog",
-        password: "1213123"
-      };
+
     
       const onFinishFailed = (errorInfo) => {
 

@@ -21,14 +21,13 @@ const Post = () => {
         console.log('Change:', e.target.value);
       };
 
-      console.log(post);
       useEffect(() => {
         const fetchData = async () => {
           const {data} = await httpPost(slug);
+          console.log(data)
           setPost(data[0]);
         }
         fetchData();
-        // httpPost(slug).then(data => setPost(data.data[0])).catch(err => console.log(err));
        }, [slug])
     return(
     <Row>
@@ -36,8 +35,8 @@ const Post = () => {
     <h1 style={{marginBottom:"25px",fontSize:"34px"}}>{post ? <Interweave content={post.title.rendered} /> : null}</h1>
     <Image
     preview={false}
-    src={post ? post.uagb_featured_image_src.medium[0] : null}/>
-    <p style={{marginTop:"40px", fontSize:"14px"}}>
+    src={post ? post.uagb_featured_image_src.full[0] : null}/>
+    <p className='content-paragraph' style={{marginTop:"40px", fontSize:"14px"}}>
     {post ? <Interweave content={post.content.rendered} /> : null}
     </p>
     <Row style={{marginTop:"40px"}}>

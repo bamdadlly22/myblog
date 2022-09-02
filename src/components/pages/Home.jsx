@@ -6,7 +6,7 @@ import { Interweave } from 'interweave';
 import Meta from 'antd/lib/card/Meta';
 import { Divider, List, Typography } from 'antd';
 
-const Home = ({userinfo}) => {
+const Home = () => {
 
   const {posts} = useSelector(state => state.posts);
   const [lasts, setLasts] = useState([]);
@@ -25,33 +25,29 @@ const Home = ({userinfo}) => {
     setLasts(posts.slice(-3))
 
   },[posts])
-  console.log(userinfo);
     return(<>
-
       <section className='hero'>
         <Row gutter={[12,12]}>
-          {lasts? (lasts.map(last => {return last.id === lasts[0].id? <Col md={12}>
+          {lasts? (lasts.map(last => {return last.id === lasts[0].id? <Col md={12} key={last.id}>
             <Link to={`/posts/${last.slug}`}>
-              {console.log(lasts[0])}
             <Card  style={{position:"relative", height:"500px"}}>
               <img className='card-image' style={{height:"500px", width:"100%", objectFit:"cover"}} src={last.uagb_featured_image_src.medium[0]} alt="" />
               <div className='card-overlay'>
                 <h3><Interweave content={last.title.rendered} /></h3>
                 <p style={{textAlign:"justify"}}>
-                <Interweave content={last.excerpt.rendered} />
+                <Interweave content={last.uagb_excerpt} />
                 </p>
               </div>
             </Card>
             </Link>
-          </Col> : <Col md={6}>
+          </Col> : <Col md={6} key={last.id}>
                     <Link to={`/posts/${last.slug}`}>
-                      {console.log(lasts[0])}
                     <Card  style={{position:"relative", height:"500px"}}>
                       <img className='card-image' style={{height:"500px", width:"100%", objectFit:"cover"}} src={last.uagb_featured_image_src.medium[0]} alt="" />
                       <div className='card-overlay'>
                         <h3><Interweave content={last.title.rendered} /></h3>
                         <p style={{textAlign:"justify"}}>
-                        <Interweave content={last.excerpt.rendered} />
+                        <Interweave content={last.uagb_excerpt} />
                         </p>
                       </div>
                     </Card>
@@ -67,12 +63,12 @@ const Home = ({userinfo}) => {
           <h2 style={{marginBottom:"20px" , fontSize:"28px"}}>آخرین مطالب سایت</h2>
             <Row gutter={[20, 20]}>
             {posts.map(post => (
-                     <Col md={12}>
+                     <Col md={12} key={post.id}>
                      <Card
                       hoverable
                        cover={<img alt="example" style={{height:"300px", objectFit:"cover"}} src={post.uagb_featured_image_src.medium[0]}  />}
                       >
-                      <Meta style={{marginBottom:"5px"}} title={<Interweave content={post.title.rendered} />} description={<Interweave content={post.excerpt.rendered}/>}  />
+                      <Meta style={{marginBottom:"5px"}} title={<Interweave content={post.title.rendered} />} description={<Interweave content={post.uagb_excerpt}/>}  />
                        <Link to={`/posts/${post.slug}`}>ادامه مطلب...</Link>
                      </Card>
                      </Col>

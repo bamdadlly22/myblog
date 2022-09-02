@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import React from 'react';
 import { Input } from 'antd';
 import MainHeader from '../common/MainHeader';
+import { Outlet } from 'react-router';
 
 
 
@@ -19,6 +20,7 @@ const MainLayout = ({children}) => {
         <Breadcrumb.Item>نوشته ها</Breadcrumb.Item>
       </Breadcrumb> */}
       <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+        <Outlet/>
         {children}
       </div>
     </Content>

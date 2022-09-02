@@ -14,7 +14,6 @@ const Category = () => {
     useEffect(()=> {
      httpCatPosts(id).then(data => setCatPosts(data.data)).catch(err => console.log(err));
     },[id]);
-    console.log(catPosts);
     return(<>
           <Row gutter={[24, 24]}>
           {catPosts[0]? catPosts.map(post => 
@@ -24,7 +23,7 @@ const Category = () => {
                 key={post.id}
                 cover={<img alt="example" src={post.uagb_featured_image_src.medium[0]} height={250} style={{objectFit:"cover"}}/>}
                  >
-                <Meta style={{textAlign:"justify"}} title={<Interweave content={post.title.rendered} />} description={<Interweave content={post.excerpt.rendered} />} />
+                <Meta style={{textAlign:"justify"}} title={<Interweave content={post.title.rendered} />} description={<Interweave content={post.uagb_excerpt} />} />
                 <Link to={`/posts/${post.slug}`}>ادامه مطلب...</Link>
               </Card>
             </Col>)
